@@ -27,12 +27,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install -U ddtrace
 
     - name: Test with pytest
       run: |
-        pytest
-      env:
-        DD_CIVISIBILITY_AGENTLESS_ENABLED: 'true'
-        DD_API_KEY: ${{ secrets.DD_API_KEY }}
-        DD_SITE: us5.datadoghq.com
-        DD_ENV: ci
+        pytest DD_CIVISIBILITY_AGENTLESS_ENABLED=true DD_API_KEY=${{ secrets.DD_API_KEY }} DD_SITE=us5.datadoghq.com DD_ENV=ci DD_SERVICE=my-python-app pytest --ddtrace
+            
