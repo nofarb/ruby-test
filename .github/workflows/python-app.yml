@@ -31,5 +31,10 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest --ddtrace DD_CIVISIBILITY_AGENTLESS_ENABLED=true DD_API_KEY=${{ secrets.DD_API_KEY }} DD_SITE=us5.datadoghq.com DD_ENV=ci DD_SERVICE=my-python-app pytest --ddtrace
+        export DD_CIVISIBILITY_AGENTLESS_ENABLED=true
+        export DD_API_KEY=${{ secrets.DD_API_KEY }}
+        export DD_SITE=us5.datadoghq.com
+        export DD_ENV=ci
+        export DD_SERVICE=my-python-app
+        pytest --ddtrace
             
