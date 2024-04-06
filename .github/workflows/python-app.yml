@@ -31,3 +31,8 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+      env:
+        DD_CIVISIBILITY_AGENTLESS_ENABLED: 'true'
+        DD_API_KEY: ${{ secrets.DD_API_KEY }}
+        DD_SITE: us5.datadoghq.com
+        DD_ENV: ci
