@@ -1,5 +1,6 @@
 # test_multiplication.py
 import pytest
+import time
 import random
 from calculator import Calculator
 
