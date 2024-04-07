@@ -1,4 +1,5 @@
-# tests/test_multiplication.py
+# test_multiplication.py
+import pytest
 import random
 from calculator import Calculator
 
