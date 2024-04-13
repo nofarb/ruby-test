@@ -5,6 +5,7 @@ from calculator import Calculator
 
 def test_add(): 
     calc = Calculator()
+    time.sleep(10)  
     assert calc.add(2, 4) == 6
     
 def test_long_running_one():
