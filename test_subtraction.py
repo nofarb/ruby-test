@@ -1,5 +1,7 @@
 # /test_subtraction.py
 import pytest
+import time
+
 from calculator import Calculator
 
 def test_subtraction():
