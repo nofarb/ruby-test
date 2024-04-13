@@ -7,7 +7,7 @@ from calculator import Calculator
 def test_long_running_one():
     # Simulating a long process
     print("Test 1 is running, simulating a long process...")
-    time.sleep(75)  # Sleep for 120 seconds (2 minutes)
+    time.sleep(20)  # Sleep for 120 seconds (2 minutes)
     assert True  # Simulating a successful test
     
 def test_multiplication():
