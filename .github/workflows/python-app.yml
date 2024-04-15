@@ -16,6 +16,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      DD_GITHUB_JOB_NAME: test_tag_stage
 
     steps:
     - uses: actions/checkout@v3
@@ -29,6 +31,8 @@ jobs:
         pip install -r requirements.txt
         pip install coverage
         pip install -U ddtrace
+      env:
+        DD_TAG: step-test-tag
 
     - name: Test with pytest
       run: |
@@ -38,6 +42,7 @@ jobs:
         export DD_ENV=ci
         export DD_SERVICE=my-python-app
         pytest --ddtrace
+    
 
 
   deploy:
