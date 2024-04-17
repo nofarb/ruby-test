@@ -57,4 +57,13 @@ jobs:
       run: |
         echo "deploy"
 
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: node:18
+      ports:
+        - 80
+    steps:
+      - name: Check for dockerenv file
+        run: echo "in docker"
           
