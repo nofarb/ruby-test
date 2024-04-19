@@ -23,5 +23,5 @@ def test_multiplicationFlaky():
 
     # Introduce flakiness
     if random.choice([True, False]):
-    result += 1  # Intentionally wrong result half the time
+        result += 1  # Intentionally wrong result half the time
     assert result == 14
