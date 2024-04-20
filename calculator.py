@@ -19,3 +19,7 @@ class Calculator:
         if b == 0:
             raise ValueError("Cannot divide by zero.")
         return a / b
+
+
+# Placeholder for a sensitive data example (DO NOT USE IN PRODUCTION)
+# API_KEY = "12345-abcde-67890-fghij"  # This should be removed and managed securely
