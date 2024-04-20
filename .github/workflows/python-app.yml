@@ -67,6 +67,7 @@ jobs:
         dd_site: us5.datadoghq.com
     - name: add datadog tags
       run: |
+        export DD_API_KEY=${{ secrets.DD_API_KEY }}
         npm install -g @datadog/datadog-ci
         datadog-ci tag --level pipeline --tags team:ci
         datadog-ci tag --level pipeline --tags security
