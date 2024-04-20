@@ -6,7 +6,7 @@ from calculator import Calculator
 def test_add(): 
     calc = Calculator()
     time.sleep(10)  
-    assert calc.add(2, 4) == 6
+    assert calc.add(3, 4) == 7
     
 def test_long_running_one():
     # Simulating a long process
