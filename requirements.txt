@@ -1,2 +1,5 @@
 pytest>=3.0.0
  
+flask==0.12  # Has known vulnerabilities
+gpl-library==1.0.0  # Has restrictive GPL license
+unmaintained-library==0.1.0  # No longer maintained
