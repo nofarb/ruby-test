@@ -9,16 +9,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: read
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      DD_GITHUB_JOB_NAME: test_tag_stage
-
     steps:
     - uses: actions/checkout@v4
       with:
@@ -70,6 +65,11 @@ jobs:
         dd_service: my-app
         dd_env: ci
         dd_site: us5.datadoghq.com
+    - name: add datadog tags
+      run: |
+        npm install -g @datadog/datadog-ci
+        datadog-ci tag --level pipeline --tags team:ci
+        datadog-ci tag --level pipeline --tags security
 
 
   deploy:
@@ -82,13 +82,4 @@ jobs:
       run: |
         echo "deploy"
 
-  container-test-job:
-    runs-on: ubuntu-latest
-    container:
-      image: node:18
-      ports:
-        - 80
-    steps:
-      - name: Check for dockerenv file
-        run: echo "in docker"
-          
+
