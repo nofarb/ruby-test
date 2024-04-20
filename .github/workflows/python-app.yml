@@ -71,8 +71,8 @@ jobs:
         export DD_ENV=ci
         export DD_SERVICE=my-python-app
         npm install -g @datadog/datadog-ci
-        datadog-ci tag --level pipeline --tags team:ci
-        datadog-ci tag --level pipeline --tags security
+        datadog-ci tag --level pipeline --tags "team:ci"
+        datadog-ci tag --level job --tags "security"
 
 
   deploy:
