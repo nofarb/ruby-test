@@ -7,19 +7,19 @@ from calculator import Calculator
 def test_long_running_one():
     # Simulating a long process
     print("Test 1 is running, simulating a long process...")
-    time.sleep(20)  # Sleep for 120 seconds (2 minutes)
+    time.sleep(4)  # Sleep for 120 seconds (2 minutes)
     assert True  # Simulating a successful test
     
 def test_multiplication():
     calc = Calculator()
     result = calc.multiply(3, 4)
-    time.sleep(17)  
+    time.sleep(4)  
     assert result == 12
 
 def test_multiplicationFlaky():
     calc = Calculator()
     result = calc.multiply(2, 7)
-    time.sleep(17)  
+    time.sleep(2)  
 
     # Introduce flakiness
     #if random.choice([True, False]):
