@@ -11,5 +11,5 @@ def test_add():
 def test_long_running_one():
     # Simulating a long process
     print("Test 1 is running, simulating a long process...")
-    time.sleep(25)  # Sleep for 120 seconds (2 minutes)
+    time.sleep(2)  # Sleep for 120 seconds (2 minutes)
     assert True  # Simulating a successful test
