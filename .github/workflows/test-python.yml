@@ -1,0 +1,41 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: only tests - Python 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install coverage
+        pip install -U ddtrace
+      env:
+        DD_TAG: step-test-tag
+
+    - name: Test with pytest
+      run: |
+        export DD_CIVISIBILITY_AGENTLESS_ENABLED=true
+        export DD_API_KEY=${{ secrets.DD_API_KEY }}
+        export DD_SITE=us5.datadoghq.com
+        export DD_ENV=ci
+        export DD_SERVICE=my-python-app
+        pytest --ddtrace
+
+
