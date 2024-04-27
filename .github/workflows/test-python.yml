@@ -4,10 +4,8 @@
 name: only tests - Python 
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    - cron: "*/2 * * * *"   # <=== Change this value
 
 jobs:
   build:
