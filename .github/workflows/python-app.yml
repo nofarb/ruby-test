@@ -40,6 +40,17 @@ jobs:
         export DD_SERVICE=my-python-app
         pytest --ddtrace
 
+    - name: add datadog tags
+      run: |
+        export DD_API_KEY=${{ secrets.DD_API_KEY }}
+        export DD_SITE=us5.datadoghq.com
+        export DD_ENV=ci
+        export DD_SERVICE=my-python-app
+        export DD_TAGS=team:ci
+        
+        npm install -g @datadog/datadog-ci
+        datadog-ci tag --level pipeline
+
   static-analysis:
     runs-on: ubuntu-latest
     name: Datadog Static Analyzer
@@ -56,21 +67,23 @@ jobs:
         dd_env: ci
         dd_site: us5.datadoghq.com
         cpu_count: 2  
+
+
+  software-composition-analysis:
+    runs-on: ubuntu-latest
+    name: Datadog SBOM Generation and Upload
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Check imported libraries are secure and compliant
       id: datadog-software-composition-analysis
       uses: DataDog/datadog-sca-github-action@main
       with:
         dd_api_key: ${{ secrets.DD_API_KEY }}
         dd_app_key: ${{ secrets.DD_APP_KEY }}
-        dd_service: my-python-app
+        dd_service: my-app
         dd_env: ci
         dd_site: us5.datadoghq.com
-    - name: add datadog tags
-      run: |
-        npm install -g @datadog/datadog-ci
-        datadog-ci tag --level pipeline --tags team:ci
-        datadog-ci tag --level pipeline --tags security
-
 
   deploy:
 
