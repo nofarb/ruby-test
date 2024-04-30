@@ -10,6 +10,6 @@ def test_subtraction():
 
 def test_subtraction2():
     calc = Calculator()
-    time.sleep(14)  
+    time.sleep(11)  
 
     assert calc.subtract(6, 3) == 3
