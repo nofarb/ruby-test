@@ -85,14 +85,12 @@ jobs:
         dd_env: ci
         dd_site: us5.datadoghq.com
 
-  deploy:
-
-    runs-on: ubuntu-latest
-    needs: [build]
-
+  deploy-prod:
+    runs-on: 'ubuntu-latest'
+    environment: 'QA'
     steps:
-    - name: Test with pytest
-      run: |
-        echo "deploy"
+      - name: deploy to QA
+        run: |
+          echo "deploy to QA"
 
 
