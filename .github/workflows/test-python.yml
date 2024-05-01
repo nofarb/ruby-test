@@ -39,4 +39,10 @@ jobs:
         export DD_SERVICE=my-python-app
         pytest --ddtrace
 
-
+  deploy-prod:
+    runs-on: 'ubuntu-latest'
+    environment: 'QA'
+    steps:
+      - name: deploy to QA
+        run: |
+          echo "deploy to QA"

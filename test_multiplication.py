@@ -19,9 +19,9 @@ def test_multiplication():
 def test_multiplicationFlaky():
     calc = Calculator()
     result = calc.multiply(2, 7)
-    time.sleep(2)  
+    time.sleep(7)  
 
     # Introduce flakiness/random errors
-    if random.choice([True, False]):
-        result += 1  # Intentionally wrong result half the time
+    #if random.choice([True, False]):
+    #   result += 1  # Intentionally wrong result half the time
     assert result == 14
