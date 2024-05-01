@@ -59,6 +59,7 @@ jobs:
     steps:
       - name: deploy to QA
         run: |
+          sleep 1m
           echo "deploy to QA"
 
 
