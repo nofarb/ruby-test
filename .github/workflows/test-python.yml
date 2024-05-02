@@ -38,6 +38,7 @@ jobs:
         export DD_ENV=ci
         export DD_SERVICE=my-python-app
         pytest --ddtrace
+        datadog-ci gate evaluate
 
   deploy-prod:
     needs: [build]
