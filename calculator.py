@@ -13,8 +13,8 @@ class Calculator:
         return a - c
 
     @staticmethod
-    def multiply(a, b):
-        return a * b
+    def multiply(a, e):
+        return a * e
 
     @staticmethod
     def divide(a, b):
