@@ -38,8 +38,19 @@ jobs:
         export DD_ENV=ci
         export DD_SERVICE=my-python-app
         pytest --ddtrace
+        npm install --save-dev @datadog/datadog-ci
         datadog-ci gate evaluate
 
+    - name: Quality gate
+      run: |
+        export DD_CIVISIBILITY_AGENTLESS_ENABLED=true
+        export DD_API_KEY=${{ secrets.DD_API_KEY }}
+        export DD_SITE=us5.datadoghq.com
+        export DD_ENV=ci
+        export DD_SERVICE=my-python-app
+        npm install --save-dev @datadog/datadog-ci
+        datadog-ci gate evaluate
+        
   deploy-prod:
     needs: [build]
     runs-on: 'ubuntu-latest'
