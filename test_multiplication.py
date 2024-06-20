@@ -2,7 +2,7 @@
 import pytest
 import time
 import random
-from calculator import Calculator, use_numpy
+from calculator import Calculator
 
 def test_long_running_one():
     # Simulating a long process
@@ -27,5 +27,5 @@ def test_multiplicationFlaky():
     assert result == 14
 
 def test_use_numpy():
-    with pytest.raises(ImportError):
-        use_numpy()
+    result = Calculator.use_numpy()
+    assert (result == np.array([2, 4, 6])).all()
