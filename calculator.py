@@ -2,6 +2,8 @@
 # calculator.py
 import hashlib
 import pickle
+import numpy as np
+
 
 class Calculator:
     @staticmethod
@@ -37,7 +39,9 @@ class Calculator:
         with open(file_path, 'r') as file:
             return file.read()
 
-
+    def use_numpy():
+        # This function uses numpy, which is not listed in requirements.txt
+        return np.array([1, 2, 3]) * 2
 
 
 # Placeholder for a sensitive data example (DO NOT USE IN PRODUCTION)
