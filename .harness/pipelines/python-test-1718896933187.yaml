@@ -1,6 +1,6 @@
 pipeline:
   identifier: Build_nofarb_python_test_1718896935425
-  name: Build python-test
+  name: Aida Demo
   orgIdentifier: default
   projectIdentifier: playground
   properties:
@@ -38,3 +38,4 @@ pipeline:
             spec: {}
         type: CI
         description: ""
+  tags: {}
