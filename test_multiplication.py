@@ -2,7 +2,7 @@
 import pytest
 import time
 import random
-from calculator import Calculator
+from calculator import Calculator, use_numpy
 
 def test_long_running_one():
     # Simulating a long process
