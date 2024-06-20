@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_nofarb_python_test_1718896935425-push-trigger-input-set
+  identifier: Build_nofarb_python_test_1718896935425pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: playground
+  pipeline:
+    identifier: Build_nofarb_python_test_1718896935425
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
