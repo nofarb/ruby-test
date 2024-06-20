@@ -28,6 +28,7 @@ pipeline:
                     command: |-
                       python -m pip install --upgrade pip
                       pip install -r requirements.txt
+                      pytest
               - step:
                   identifier: setupvirtualenvironment
                   name: setup virtual environment
