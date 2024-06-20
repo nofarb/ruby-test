@@ -15,7 +15,8 @@ pipeline:
         name: build
         spec:
           caching:
-            enabled: true
+            enabled: false
+            paths: []
           cloneCodebase: true
           execution:
             steps:
@@ -36,3 +37,4 @@ pipeline:
             type: Cloud
             spec: {}
         type: CI
+        description: ""
