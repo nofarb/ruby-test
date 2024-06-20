@@ -25,3 +25,7 @@ def test_multiplicationFlaky():
     #if random.choice([True, False]):
     #   result += 1  # Intentionally wrong result half the time
     assert result == 14
+
+def test_use_numpy():
+    with pytest.raises(ImportError):
+        use_numpy()
