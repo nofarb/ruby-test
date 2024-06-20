@@ -2,6 +2,7 @@
 import pytest
 import time
 import random
+import numpy as np
 from calculator import Calculator
 
 def test_long_running_one():
