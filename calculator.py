@@ -23,7 +23,11 @@ class Calculator:
         if b == 0:
             raise ValueError("Cannot divide by zero.")
         return a / b
-
+   
+    @staticmethod
+    def use_numpy():
+        # This function uses numpy, which is not listed in requirements.txt
+        return np.array([1, 2, 3]) * 2
 
     def insecure_hash(password: str) -> str:
         # MD5 is considered cryptographically broken and unsuitable for further use.
@@ -39,9 +43,6 @@ class Calculator:
         with open(file_path, 'r') as file:
             return file.read()
 
-    def use_numpy():
-        # This function uses numpy, which is not listed in requirements.txt
-        return np.array([1, 2, 3]) * 2
 
 
 # Placeholder for a sensitive data example (DO NOT USE IN PRODUCTION)
