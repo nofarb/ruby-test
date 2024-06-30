@@ -86,7 +86,7 @@ jobs:
         dd_env: ci
         dd_site: us5.datadoghq.com
 
-  deploy-prod:
+  deploy-qa:
     runs-on: 'ubuntu-latest'
     environment: 'QA'
     steps:
